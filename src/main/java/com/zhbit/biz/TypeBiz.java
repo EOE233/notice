@@ -13,8 +13,41 @@ import java.util.List;
  */
 public class TypeBiz {
     SqlSession session = SqlSessionUtil.creat();
+
     TypeMapper mapper = session.getMapper(TypeMapper.class);
-    public List<Type> getAllType(){
+
+    /**
+     * 获取所有通知类型
+     */
+    public List<Type> getAllType() {
         return mapper.getAllTypeList();
+    }
+
+    /**
+     * 通过通知类型编号删除通知类型
+     */
+    public int delTypeByID(int tNo) {
+        return mapper.deleteType(tNo);
+    }
+
+    /**
+     * 通过公告类型编号修改公告
+     */
+    public int updateTypeByID(int tNo, String tTypeName) {
+        return mapper.alterType(tNo, tTypeName);
+    }
+
+    /**
+     * 通过公告类型编号获取公告类型
+     */
+    public Type getTypeByID (int tNo) {
+        return mapper.getTypeByID(tNo);
+    }
+
+    /**
+     * 添加公告类型
+     */
+    public int addType (String tTypeName) {
+        return mapper.addType(tTypeName);
     }
 }

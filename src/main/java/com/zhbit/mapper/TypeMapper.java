@@ -31,4 +31,9 @@ public interface TypeMapper {
      */
     int alterType(@Param("Tno") int Tno, @Param("TtypeName") String TtypeName);
 
+    /**
+     * 通过公告类型编号获取公告类型
+     */
+    Type getTypeByID (@Param("Tno") int Tno);
+
 }

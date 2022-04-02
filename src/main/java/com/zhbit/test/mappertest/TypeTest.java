@@ -56,4 +56,15 @@ public class TypeTest {
         int result = mapper.alterType(6,"修改数据");
         System.out.println(result);
     }
+
+    /**
+     * 通过编号获取公告类型
+     */
+    @Test
+    public void test4 () {
+        SqlSession session = SqlSessionUtil.creat();
+        TypeMapper mapper = session.getMapper(TypeMapper.class);
+        Type type = mapper.getTypeByID(1);
+        System.out.println(type);
+    }
 }
