@@ -14,6 +14,13 @@ public class UserServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 6971717725995508517L;
 
+	/**
+	 * 用户登录
+	 * @param request
+	 * @param response
+	 * @throws ServletException
+	 * @throws IOException
+	 */
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

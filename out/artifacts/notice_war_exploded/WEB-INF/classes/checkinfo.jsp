@@ -28,16 +28,9 @@
                 <input type="text" name="password" value="<%=user.getuPassword()%>" readonly="readonly">
             </td>
         </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td>
-                <input type="submit" value="返回">
-            </td>
-        </tr>
     </table>
 </form>
-<a href="alter.jsp">
+<a href="alter.jsp" target="showNotice">
     <button>修改个人信息</button>
 </a>
 </body>

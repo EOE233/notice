@@ -39,6 +39,8 @@ public class NoticeServlet extends HttpServlet {
             doShowNoticeDetailForModify(request, response);
         } else if ("updateNotice".equals(method)) {
             doUpdateNotice(request, response);
+        } else if ("getNoticeByNameM".equals(method)) {
+            getNoticeByNameM(request, response);
         }
     }
 
@@ -48,6 +50,13 @@ public class NoticeServlet extends HttpServlet {
         this.doGet(request, response);
     }
 
+    /**
+     * 通过公告类型显示通知
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     private void doShowNotice(HttpServletRequest request,
                               HttpServletResponse response) throws ServletException, IOException {
         int typeId = Integer.parseInt(request.getParameter("typeId"));
@@ -57,6 +66,13 @@ public class NoticeServlet extends HttpServlet {
         request.getRequestDispatcher("/page/portal/showNoticeByType.jsp").forward(request, response);
     }
 
+    /**
+     * 显示公告详细信息
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     private void doShowNoticeDetail(HttpServletRequest request,
                                     HttpServletResponse response) throws ServletException, IOException {
         int noticeId = Integer.parseInt(request.getParameter("noticeId"));
@@ -66,7 +82,13 @@ public class NoticeServlet extends HttpServlet {
         request.getRequestDispatcher("/page/portal/showNoticeDetailByID.jsp").forward(request, response);
     }
 
-
+    /**
+     * 跳转到修改页面前获取通知信息
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     private void doShowNoticeDetailForModify(HttpServletRequest request,
                                              HttpServletResponse response) throws ServletException, IOException {
         int noticeId = Integer.parseInt(request.getParameter("noticeId"));
@@ -79,6 +101,13 @@ public class NoticeServlet extends HttpServlet {
         request.getRequestDispatcher("page/system/noticeEdit.jsp").forward(request, response);
     }
 
+    /**
+     * 修改通知
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     private void doUpdateNotice(HttpServletRequest request,
                                 HttpServletResponse response) throws ServletException, IOException {
         String title = request.getParameter("title");
@@ -106,6 +135,13 @@ public class NoticeServlet extends HttpServlet {
         }
     }
 
+    /**
+     * 删除通知
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     private void doDeleteNotice(HttpServletRequest request,
                                 HttpServletResponse response) throws ServletException, IOException {
         int noticeId = Integer.parseInt(request.getParameter("noticeId"));
@@ -119,6 +155,13 @@ public class NoticeServlet extends HttpServlet {
         }
     }
 
+    /**
+     * 跳转到添加通知页面前获取信息
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     private void doShowAddNotice(HttpServletRequest request,
                                  HttpServletResponse response) throws ServletException, IOException {
         TypeBiz typeBiz = new TypeBiz();
@@ -127,6 +170,13 @@ public class NoticeServlet extends HttpServlet {
         request.getRequestDispatcher("page/system/noticeAdd.jsp").forward(request, response);
     }
 
+    /**
+     * 添加通知
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     private void doAddNotice(HttpServletRequest request,
                              HttpServletResponse response) throws ServletException, IOException {
         String title = request.getParameter("title");
@@ -153,11 +203,34 @@ public class NoticeServlet extends HttpServlet {
         }
     }
 
+    /**
+     * 显示所哟通知
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     private void doShowAllNotice(HttpServletRequest request,
                                  HttpServletResponse response) throws ServletException, IOException {
         NoticeBiz noticeBiz = new NoticeBiz();
         List<Notice> list = noticeBiz.getAllNotice();
         request.setAttribute("list", list);
         request.getRequestDispatcher("/page/system/showAllNoticeList.jsp").forward(request, response);
+    }
+
+    /**
+     * 根据通知名称模糊查询
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
+    private void getNoticeByNameM (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        System.out.println("测试");
+        String Ntitle = request.getParameter("Ntitle");
+        NoticeBiz noticeBiz = new NoticeBiz();
+        List<Notice> list = noticeBiz.getNoticeByNameM(Ntitle);
+        request.setAttribute("list", list);
+        request.getRequestDispatcher("/page/portal/showNoticeM.jsp").forward(request, response);
     }
 }

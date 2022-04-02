@@ -14,6 +14,13 @@ public class UserRegServlet extends HttpServlet {
         doPost(req, resp);
     }
 
+    /**
+     * 用户注册
+     * @param req
+     * @param resp
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String userName = req.getParameter("userName");

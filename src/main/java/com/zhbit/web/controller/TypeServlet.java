@@ -133,6 +133,13 @@ public class TypeServlet extends HttpServlet {
         request.getRequestDispatcher("page/system/typeEdit.jsp").forward(request, response);
     }
 
+    /**
+     * 添加公告类型
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void addType (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("测试");
         String TtypeName = request.getParameter("TtypeName");

@@ -12,15 +12,25 @@ import org.apache.ibatis.session.SqlSession;
 public class UserBiz {
     SqlSession session = SqlSessionUtil.creat();
     UserMapper mapper = session.getMapper(UserMapper.class);
-    public User login(String userName, String password){
-        return mapper.getUserByPassword(userName,password);
+
+    /**
+     * 用户登录
+     */
+    public User login(String userName, String password) {
+        return mapper.getUserByPassword(userName, password);
     }
 
-    public int register (String username, String password) {
+    /**
+     * 用户注册
+     */
+    public int register(String username, String password) {
         return mapper.insertUser(username, password);
     }
 
-    public int update (int uNo, String uName, String uPassword) {
+    /**
+     * 更新用户信息
+     */
+    public int update(int uNo, String uName, String uPassword) {
         return mapper.updateUser(uNo, uName, uPassword);
     }
 }

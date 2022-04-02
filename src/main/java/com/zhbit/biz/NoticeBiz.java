@@ -14,27 +14,53 @@ import java.util.List;
 public class NoticeBiz {
     SqlSession session = SqlSessionUtil.creat();
     NoticeMapper mapper = session.getMapper(NoticeMapper.class);
-    public List<Notice> getAllNotice(){
+
+    /**
+     * 显示所有通知
+     */
+    public List<Notice> getAllNotice() {
         return mapper.getAllNoticeList();
     }
 
-    public Notice getNoticeById(int noticeId){
+    /**
+     * 通过通知编号获取通知
+     */
+    public Notice getNoticeById(int noticeId) {
         return mapper.getNoticeById(noticeId);
     }
 
-    public List<Notice> getNoticeByTypeId(int typeId){
+    /**
+     * 通过公告类型获取通知
+     */
+    public List<Notice> getNoticeByTypeId(int typeId) {
         return mapper.getNoticeByType(typeId);
     }
 
-    public boolean addNotice(Notice notice){
+    /**
+     * 添加通知
+     */
+    public boolean addNotice(Notice notice) {
         return mapper.addNotice(notice);
     }
 
-    public boolean updateNotice(Notice notice){
+    /**
+     * 更新通知
+     */
+    public boolean updateNotice(Notice notice) {
         return mapper.updateNotice(notice);
     }
 
-    public boolean deleteNotice(int noticeId){
+    /**
+     * 删除通知
+     */
+    public boolean deleteNotice(int noticeId) {
         return mapper.deleteNotice(noticeId);
+    }
+
+    /**
+     * 模糊查询通知
+     */
+    public List<Notice> getNoticeByNameM(String nTitle) {
+        return mapper.getNoticeByNameM(nTitle);
     }
 }

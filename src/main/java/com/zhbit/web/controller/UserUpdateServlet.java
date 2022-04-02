@@ -15,6 +15,13 @@ public class UserUpdateServlet extends HttpServlet {
         doPost(req, resp);
     }
 
+    /**
+     * 修改用户信息
+     * @param req
+     * @param resp
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         UserBiz userBiz = new UserBiz();

@@ -40,14 +40,14 @@ public class TypeBiz {
     /**
      * 通过公告类型编号获取公告类型
      */
-    public Type getTypeByID (int tNo) {
+    public Type getTypeByID(int tNo) {
         return mapper.getTypeByID(tNo);
     }
 
     /**
      * 添加公告类型
      */
-    public int addType (String tTypeName) {
+    public int addType(String tTypeName) {
         return mapper.addType(tTypeName);
     }
 }
