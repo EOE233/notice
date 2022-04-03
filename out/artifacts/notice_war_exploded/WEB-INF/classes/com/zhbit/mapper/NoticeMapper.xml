@@ -10,7 +10,7 @@ namespace:命名空间,使用Mapper接口的全限定名称
 
     <!-- public boolean addNotice(@Param("notice") Notice notice); -->
     <insert id="addNotice">
-        insert into Notice (Ntitle, Ncontent,Neditor,NcreateTime,Ntype)values(#{nTitle},#{nContent},#{nEditor},#{nCreateTime},#{nType})
+        insert into Notice (Ntitle, Ncontent,Neditor,NcreateTime,Ntype,Uno)values(#{nTitle},#{nContent},#{nEditor},#{nCreateTime},#{nType},#{uNo})
     </insert>
 
     <!-- boolean deleteNotice(int noticeId); -->

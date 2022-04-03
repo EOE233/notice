@@ -10,26 +10,24 @@
 </head>
 
 <body>
-<form action="http://localhost:8080/notice/userServlet">
-    <table>
-        <tr>
-            <td>id</td>
-            <td>用户名</td>
-            <td>密码</td>
-        </tr>
-        <tr>
-            <td>
-                <%=user.getuNo()%>
-            </td>
-            <td>
-                <input type="text" name="userName" value="<%=user.getuName()%>" readonly="readonly">
-            </td>
-            <td>
-                <input type="text" name="password" value="<%=user.getuPassword()%>" readonly="readonly">
-            </td>
-        </tr>
-    </table>
-</form>
+<table>
+    <tr>
+        <td>id</td>
+        <td>用户名</td>
+        <td>密码</td>
+    </tr>
+    <tr>
+        <td>
+            <%=user.getuNo()%>
+        </td>
+        <td>
+            <%=user.getuName()%>
+        </td>
+        <td>
+            <%=user.getuPassword()%>
+        </td>
+    </tr>
+</table>
 <a href="alter.jsp" target="showNotice">
     <button>修改个人信息</button>
 </a>

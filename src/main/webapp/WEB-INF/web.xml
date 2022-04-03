@@ -44,14 +44,6 @@
     <servlet-name>userServlet</servlet-name>
     <servlet-class>com.zhbit.web.controller.UserServlet</servlet-class>
   </servlet>
-  <servlet>
-    <servlet-name>UserRegServlet</servlet-name>
-    <servlet-class>com.zhbit.web.controller.UserRegServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>UserUpdateServlet</servlet-name>
-    <servlet-class>com.zhbit.web.controller.UserUpdateServlet</servlet-class>
-  </servlet>
 
 
   <servlet-mapping>
@@ -66,14 +58,7 @@
     <servlet-name>userServlet</servlet-name>
     <url-pattern>/userServlet</url-pattern>
   </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>UserRegServlet</servlet-name>
-    <url-pattern>/userRegServlet</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>UserUpdateServlet</servlet-name>
-    <url-pattern>/userUpdateServlet</url-pattern>
-  </servlet-mapping>
+
 
 
   <welcome-file-list>

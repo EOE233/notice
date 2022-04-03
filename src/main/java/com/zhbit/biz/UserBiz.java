@@ -5,6 +5,8 @@ import com.zhbit.mapper.UserMapper;
 import com.zhbit.utils.SqlSessionUtil;
 import org.apache.ibatis.session.SqlSession;
 
+import java.util.List;
+
 /**
  * @author Yanea
  * 2022/3/28 0:01
@@ -32,5 +34,19 @@ public class UserBiz {
      */
     public int update(int uNo, String uName, String uPassword) {
         return mapper.updateUser(uNo, uName, uPassword);
+    }
+
+    /**
+     * 获取所有用户
+     */
+    public List<User> getAllUsers () {
+        return mapper.getAllUserList();
+    }
+
+    /**
+     * 获取用户一对多的通知
+     */
+    public User getUserAndNotice (int uNo) {
+        return mapper.getUserAndNotice(uNo);
     }
 }

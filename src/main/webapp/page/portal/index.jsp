@@ -41,7 +41,15 @@
                         }
                     %>
                     <a href="page/portal/selectM.jsp"
-                       target="showNotice">模糊查询
+                       target="showNotice">模糊查询;
+                    </a>
+                    <br>
+                    <a href="page/portal/selectNoticeByTime.jsp"
+                       target="showNotice">时间查询;
+                    </a>
+                    <br>
+                    <a href="userServlet?method=getAllUsers"
+                       target="showNotice">一对多查询;
                     </a>
                 </div>
                 <div class="cleaner"></div>

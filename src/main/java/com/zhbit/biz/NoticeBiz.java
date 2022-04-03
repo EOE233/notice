@@ -63,4 +63,11 @@ public class NoticeBiz {
     public List<Notice> getNoticeByNameM(String nTitle) {
         return mapper.getNoticeByNameM(nTitle);
     }
+
+    /**
+     * 时间区间查询
+     */
+    public List<Notice> getNoticeByTime (String sTime, String eTime) {
+        return mapper.getNoticeByTime(sTime, eTime);
+    }
 }

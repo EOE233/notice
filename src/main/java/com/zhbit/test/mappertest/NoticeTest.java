@@ -23,7 +23,7 @@ public class NoticeTest {
         SqlSession session = SqlSessionUtil.creat();
         NoticeMapper mapper = session.getMapper(NoticeMapper.class);
         java.sql.Date date = new java.sql.Date(new Date().getTime());
-        Notice notice = new Notice(9,"idea测试","内容","教务处", date,2);
+        Notice notice = new Notice(9,"idea测试","内容","教务处", date,2,1);
         boolean b = mapper.addNotice(notice);
     }
 
@@ -45,7 +45,7 @@ public class NoticeTest {
         SqlSession session = SqlSessionUtil.creat();
         NoticeMapper mapper = session.getMapper(NoticeMapper.class);
         java.sql.Date date = new java.sql.Date(new Date().getTime());
-        Notice notice = new Notice(7,"idea测试","内容","教务处", date,2);
+        Notice notice = new Notice(7,"idea测试","内容","教务处", date,2,1);
         mapper.updateNotice(notice);
     }
 

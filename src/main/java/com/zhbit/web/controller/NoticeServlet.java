@@ -3,6 +3,7 @@ package com.zhbit.web.controller;
 
 import com.zhbit.bean.Notice;
 import com.zhbit.bean.Type;
+import com.zhbit.bean.User;
 import com.zhbit.biz.NoticeBiz;
 import com.zhbit.biz.TypeBiz;
 
@@ -41,6 +42,8 @@ public class NoticeServlet extends HttpServlet {
             doUpdateNotice(request, response);
         } else if ("getNoticeByNameM".equals(method)) {
             getNoticeByNameM(request, response);
+        } else if ("getNoticeByTime".equals(method)) {
+            getNoticeByTime(request, response);
         }
     }
 
@@ -188,11 +191,13 @@ public class NoticeServlet extends HttpServlet {
         java.sql.Date date = new java.sql.Date(new Date().getTime());
 
         Notice notice = new Notice();
+        User user = (User) request.getSession().getAttribute("LOGINED_USER");
         notice.setnContent(content);
         notice.setnEditor(editor);
         notice.setnTitle(title);
         notice.setnType(type);
         notice.setnCreateTime(date);
+        notice.setuNo(user.getuNo());
         NoticeBiz noticeBiz = new NoticeBiz();
         if (noticeBiz.addNotice(notice)) {
             List<Notice> list = noticeBiz.getAllNotice();
@@ -204,7 +209,7 @@ public class NoticeServlet extends HttpServlet {
     }
 
     /**
-     * 显示所哟通知
+     * 显示所有通知
      * @param request
      * @param response
      * @throws ServletException
@@ -232,5 +237,21 @@ public class NoticeServlet extends HttpServlet {
         List<Notice> list = noticeBiz.getNoticeByNameM(Ntitle);
         request.setAttribute("list", list);
         request.getRequestDispatcher("/page/portal/showNoticeM.jsp").forward(request, response);
+    }
+
+    /**
+     * 根据时间区间获取通知
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
+    private void getNoticeByTime (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String sTime = request.getParameter("startTime");
+        String eTime = request.getParameter("endTime");
+        NoticeBiz noticeBiz = new NoticeBiz();
+        List<Notice> list = noticeBiz.getNoticeByTime(sTime, eTime);
+        request.setAttribute("list", list);
+        request.getRequestDispatcher("page/portal/showNoticeByTime.jsp").forward(request, response);
     }
 }

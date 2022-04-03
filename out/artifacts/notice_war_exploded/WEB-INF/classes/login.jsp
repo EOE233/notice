@@ -33,6 +33,7 @@
     	<br />
      	 密&nbsp;&nbsp;码：<input type="password" id="password" name="password"/>
         <br/>
+		<input type="hidden" name="method" value="doLogin"/>
         <input type="submit" value="登录"/>
         <input type="reset" value="重置"/>
 		<a href="register.jsp"><input type="button" value="注册"></a>

@@ -25,7 +25,7 @@
 </head>
 
 <body>
-<form action="/notice/userUpdateServlet" onsubmit="javascript: return checkLogin();" method="post">
+<form action="userServlet" onsubmit="javascript: return checkLogin();" method="post">
     <fieldset>
         <legend>修改个人信息</legend>
         <table>
@@ -38,6 +38,7 @@
                 <td><input type="password" id="uPassword" name="uPassword" value="<%=user.getuPassword()%>"></td>
             </tr>
             <tr>
+                <input type="hidden" name="method" value="doUpdateUser">
                 <td><input type="submit" name="submit" id="submit" value="修改"></td>
                 <td></td>
             </tr>

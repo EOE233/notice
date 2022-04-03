@@ -25,7 +25,7 @@
     </script>
 </head>
 <body>
-    <form action="http://localhost:8080/notice/userRegServlet" id="register" onsubmit="javascript: return checkRegister()" method="post">
+    <form action="userServlet" id="register" onsubmit="javascript: return checkRegister()" method="post">
         <fieldset>
             <legend>注册信息</legend>
         <%
@@ -45,6 +45,7 @@
                     <td><input type="password" id="password" name="password"></td>
                 </tr>
                 <tr>
+                    <input type="hidden" name="method" value="doRegister">
                     <td><a href="login.jsp"><input type="button" value="返回登录"></a></td>
                     <td><input type="submit" value="注册"></td>
                 </tr>

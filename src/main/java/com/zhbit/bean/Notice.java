@@ -9,18 +9,27 @@ public class Notice {
 	private String nEditor;	//通知公告发布者
 	private Date nCreateTime;//发布时间
 	private int nType;	    //通知公告类型
-	
-	public Notice(){
-		
+	private int uNo;		//发布者ID
+
+	public Notice() {
 	}
 
-	public Notice(int nNo, String nTitle, String nContent, String nEditor, Date nCreateTime, int nType) {
+	public Notice(int nNo, String nTitle, String nContent, String nEditor, Date nCreateTime, int nType, int uNo) {
 		this.nNo = nNo;
 		this.nTitle = nTitle;
 		this.nContent = nContent;
 		this.nEditor = nEditor;
 		this.nCreateTime = nCreateTime;
 		this.nType = nType;
+		this.uNo = uNo;
+	}
+
+	public int getuNo() {
+		return uNo;
+	}
+
+	public void setuNo(int uNo) {
+		this.uNo = uNo;
 	}
 
 	public int getnNo() {
