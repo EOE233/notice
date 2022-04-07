@@ -17,7 +17,7 @@ public class TypeTest {
      * 测试getAllTypeList
      */
     @Test
-    public void test(){
+    public void test() {
         SqlSession session = SqlSessionUtil.creat();
         TypeMapper mapper = session.getMapper(TypeMapper.class);
         List<Type> list = mapper.getAllTypeList();
@@ -53,7 +53,7 @@ public class TypeTest {
     public void test3() {
         SqlSession session = SqlSessionUtil.creat();
         TypeMapper mapper = session.getMapper(TypeMapper.class);
-        int result = mapper.alterType(6,"修改数据");
+        int result = mapper.alterType(6, "修改数据");
         System.out.println(result);
     }
 
@@ -61,7 +61,7 @@ public class TypeTest {
      * 通过编号获取公告类型
      */
     @Test
-    public void test4 () {
+    public void test4() {
         SqlSession session = SqlSessionUtil.creat();
         TypeMapper mapper = session.getMapper(TypeMapper.class);
         Type type = mapper.getTypeByID(1);

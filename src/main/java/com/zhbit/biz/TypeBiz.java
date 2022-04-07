@@ -4,6 +4,7 @@ import com.zhbit.bean.Type;
 import com.zhbit.mapper.TypeMapper;
 import com.zhbit.utils.SqlSessionUtil;
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ import java.util.List;
  * @author Yanea
  * 2022/3/28 0:00
  */
+@Service
 public class TypeBiz {
     SqlSession session = SqlSessionUtil.creat();
 

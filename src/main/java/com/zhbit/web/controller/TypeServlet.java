@@ -5,16 +5,22 @@ import com.zhbit.bean.Notice;
 import com.zhbit.bean.Type;
 import com.zhbit.biz.NoticeBiz;
 import com.zhbit.biz.TypeBiz;
+import com.zhbit.config.SpringConfig;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.*;
 import java.io.IOException;
 import java.util.List;
 
 public class TypeServlet extends HttpServlet {
     private static final long serialVersionUID = 3874739343783059139L;
+    private static ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+    private static TypeBiz typeBiz = context.getBean("typeBiz", TypeBiz.class);
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -51,7 +57,7 @@ public class TypeServlet extends HttpServlet {
      * @throws IOException
      */
     public void doShowAllType(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        TypeBiz typeBiz = new TypeBiz();
+//        TypeBiz typeBiz = new TypeBiz();
         List<Type> list = typeBiz.getAllType();
         request.setAttribute("list", list);
         request.getRequestDispatcher("/page/system/type_info.jsp").forward(request, response);
@@ -67,7 +73,7 @@ public class TypeServlet extends HttpServlet {
      */
     public void doDelTypeByID(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         System.out.println("测试");
-        TypeBiz typeBiz = new TypeBiz();
+//        TypeBiz typeBiz = new TypeBiz();
         int Tno = Integer.parseInt(request.getParameter("Tno"));
         int result = typeBiz.delTypeByID(Tno);
         if (result == 1) {
@@ -88,7 +94,7 @@ public class TypeServlet extends HttpServlet {
      * @throws IOException
      */
     public void doUpdateType(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        TypeBiz typeBiz = new TypeBiz();
+//        TypeBiz typeBiz = new TypeBiz();
         int Tno = Integer.parseInt(request.getParameter("Tno"));
         String TtypeName = request.getParameter("TtypeName");
         int result = typeBiz.updateTypeByID(Tno, TtypeName);
@@ -109,7 +115,7 @@ public class TypeServlet extends HttpServlet {
      * @throws IOException
      */
     public void doLogin (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        TypeBiz typeBiz = new TypeBiz();
+//        TypeBiz typeBiz = new TypeBiz();
         List<Type> typeList = typeBiz.getAllType();
         request.setAttribute("list", typeList);
     }
@@ -126,7 +132,7 @@ public class TypeServlet extends HttpServlet {
 //        String tno = request.getParameter("Tno");
 //        System.out.println(tno);
         int Tno = Integer.parseInt(request.getParameter("Tno"));
-        TypeBiz typeBiz = new TypeBiz();
+//        TypeBiz typeBiz = new TypeBiz();
 
         Type type = typeBiz.getTypeByID(Tno);
         request.setAttribute("type", type);
@@ -143,7 +149,7 @@ public class TypeServlet extends HttpServlet {
     public void addType (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("测试");
         String TtypeName = request.getParameter("TtypeName");
-        TypeBiz typeBiz = new TypeBiz();
+//        TypeBiz typeBiz = new TypeBiz();
         int result = typeBiz.addType(TtypeName);
         if (result == 1) {
             System.out.println("成功");

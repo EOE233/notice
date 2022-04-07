@@ -1,5 +1,8 @@
 package com.zhbit.bean;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Type {
 	private int tNo;           //ID
 	private String tTypeName; //通知公告类型名称

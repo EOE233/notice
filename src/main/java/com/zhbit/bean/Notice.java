@@ -1,7 +1,9 @@
 package com.zhbit.bean;
 
-import java.util.Date;
+import org.springframework.stereotype.Component;
 
+import java.util.Date;
+@Component
 public class Notice {
 	private int nNo;         //ID
 	private String nTitle;   //通知公告标题

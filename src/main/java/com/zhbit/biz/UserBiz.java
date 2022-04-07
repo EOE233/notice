@@ -4,6 +4,7 @@ import com.zhbit.bean.User;
 import com.zhbit.mapper.UserMapper;
 import com.zhbit.utils.SqlSessionUtil;
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ import java.util.List;
  * @author Yanea
  * 2022/3/28 0:01
  */
+@Service
 public class UserBiz {
     SqlSession session = SqlSessionUtil.creat();
     UserMapper mapper = session.getMapper(UserMapper.class);
