@@ -34,19 +34,21 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-web:5.3.18" />
           <element id="library" level="project" name="Maven: org.springframework:spring-beans:5.3.18" />
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.3.18" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-expression:5.3.18" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.3.18" />
           <element id="library" level="project" name="Maven: org.springframework:spring-test:5.3.18" />
           <element id="library" level="project" name="Maven: org.springframework:spring-context:5.3.18" />
           <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:5.3.18" />
           <element id="library" level="project" name="Maven: org.springframework:spring-tx:5.3.18" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:5.3.18" />
           <element id="library" level="project" name="Maven: org.mybatis:mybatis-spring:2.0.7" />
           <element id="library" level="project" name="Maven: com.alibaba:druid:1.2.8" />
           <element id="library" level="project" name="Maven: org.testng:testng:7.5" />
           <element id="library" level="project" name="Maven: com.google.code.findbugs:jsr305:3.0.1" />
-          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.32" />
           <element id="library" level="project" name="Maven: com.beust:jcommander:1.78" />
           <element id="library" level="project" name="Maven: org.webjars:jquery:3.5.1" />
+          <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.9.9.1" />
+          <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.36" />
         </element>
       </element>
       <element id="directory" name="META-INF">
