@@ -45,5 +45,11 @@ public class Springtest {
         }
     }
 
+    @Test
+    public void test4() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("ApplicationContext.xml");
+
+    }
+
 
 }
