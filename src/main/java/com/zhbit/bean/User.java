@@ -1,13 +1,11 @@
 package com.zhbit.bean;
 
-import org.springframework.stereotype.Component;
-
 import java.util.List;
 
 /**
  * 管理员
  */
-@Component
+
 public class User {
     private int uNo;
     private String uName;
@@ -31,8 +29,6 @@ public class User {
     public void setNotices(List<Notice> notices) {
         this.notices = notices;
     }
-
-
 
 
     public User() {

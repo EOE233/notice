@@ -6,9 +6,10 @@ import com.zhbit.bean.Type;
 import com.zhbit.bean.User;
 import com.zhbit.biz.NoticeBiz;
 import com.zhbit.biz.TypeBiz;
-import com.zhbit.config.SpringConfig;
+import com.zhbit.utils.ApplicationContextUtil;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Controller;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,12 +19,13 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
+@Controller
 public class NoticeServlet extends HttpServlet {
 
     private static final long serialVersionUID = 2884006783308811985L;
-    private static ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
-    private static NoticeBiz noticeBiz = context.getBean("noticeBiz", NoticeBiz.class);
-    private static TypeBiz typeBiz = context.getBean("typeBiz", TypeBiz.class);
+    private ApplicationContext context = ApplicationContextUtil.creat();
+    private NoticeBiz noticeBiz = context.getBean("noticeBiz", NoticeBiz.class);
+    private TypeBiz typeBiz = context.getBean("typeBiz", TypeBiz.class);
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)

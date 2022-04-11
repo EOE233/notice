@@ -4,8 +4,10 @@ import com.zhbit.bean.User;
 import com.zhbit.mapper.UserMapper;
 import com.zhbit.utils.SqlSessionUtil;
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 /**
@@ -13,9 +15,11 @@ import java.util.List;
  * 2022/3/28 0:01
  */
 @Service
+@Transactional
 public class UserBiz {
-    SqlSession session = SqlSessionUtil.creat();
-    UserMapper mapper = session.getMapper(UserMapper.class);
+//    SqlSession session = SqlSessionUtil.creat();
+    @Autowired
+    UserMapper mapper;// = session.getMapper(UserMapper.class);
 
     /**
      * 用户登录

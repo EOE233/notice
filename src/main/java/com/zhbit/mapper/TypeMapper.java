@@ -2,6 +2,7 @@ package com.zhbit.mapper;
 
 import com.zhbit.bean.Type;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -9,6 +10,7 @@ import java.util.List;
  * @author Yanea
  * 2022/3/27 20:21
  */
+@Repository
 public interface TypeMapper {
     /**
      * 获取所有公告类型

@@ -4,8 +4,10 @@ import com.zhbit.bean.Type;
 import com.zhbit.mapper.TypeMapper;
 import com.zhbit.utils.SqlSessionUtil;
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 /**
@@ -13,10 +15,11 @@ import java.util.List;
  * 2022/3/28 0:00
  */
 @Service
+@Transactional
 public class TypeBiz {
-    SqlSession session = SqlSessionUtil.creat();
-
-    TypeMapper mapper = session.getMapper(TypeMapper.class);
+//    SqlSession session = SqlSessionUtil.creat();
+    @Autowired
+    TypeMapper mapper;// = session.getMapper(TypeMapper.class);
 
     /**
      * 获取所有通知类型

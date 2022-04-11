@@ -4,8 +4,10 @@ import com.zhbit.bean.Notice;
 import com.zhbit.mapper.NoticeMapper;
 import com.zhbit.utils.SqlSessionUtil;
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 /**
@@ -13,9 +15,11 @@ import java.util.List;
  * 2022/3/27 23:58
  */
 @Service
+@Transactional
 public class NoticeBiz {
-    SqlSession session = SqlSessionUtil.creat();
-    NoticeMapper mapper = session.getMapper(NoticeMapper.class);
+//    SqlSession session = SqlSessionUtil.creat();
+    @Autowired
+    NoticeMapper mapper;
 
     /**
      * 显示所有通知

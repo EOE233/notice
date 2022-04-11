@@ -21,6 +21,8 @@
         <fileset id="fileset" name="Spring Application Context1" removed="false">
           <file>file://$MODULE_DIR$/src/main/java/com/zhbit/config/SpringConfig.java</file>
           <file>file://$MODULE_DIR$/src/main/resources/ApplicationConfig.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/Application.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/ApplicationContext.xml</file>
         </fileset>
       </configuration>
     </facet>

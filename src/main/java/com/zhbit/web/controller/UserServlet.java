@@ -3,9 +3,10 @@ package com.zhbit.web.controller;
 
 import com.zhbit.bean.User;
 import com.zhbit.biz.UserBiz;
-import com.zhbit.config.SpringConfig;
+import com.zhbit.utils.ApplicationContextUtil;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Controller;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -14,11 +15,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+@Controller
 public class UserServlet extends HttpServlet {
 
     private static final long serialVersionUID = 6971717725995508517L;
 
-    private static ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+    private static ApplicationContext context = ApplicationContextUtil.creat();
     private static UserBiz userBiz = context.getBean("userBiz", UserBiz.class);
 
     /**

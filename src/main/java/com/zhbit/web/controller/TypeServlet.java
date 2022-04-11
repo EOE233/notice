@@ -1,26 +1,25 @@
 package com.zhbit.web.controller;
 
 
-import com.zhbit.bean.Notice;
 import com.zhbit.bean.Type;
-import com.zhbit.biz.NoticeBiz;
 import com.zhbit.biz.TypeBiz;
-import com.zhbit.config.SpringConfig;
+import com.zhbit.utils.ApplicationContextUtil;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Controller;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.swing.*;
 import java.io.IOException;
 import java.util.List;
 
+@Controller
 public class TypeServlet extends HttpServlet {
     private static final long serialVersionUID = 3874739343783059139L;
-    private static ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
-    private static TypeBiz typeBiz = context.getBean("typeBiz", TypeBiz.class);
+    private ApplicationContext context = ApplicationContextUtil.creat();
+    private TypeBiz typeBiz = context.getBean("typeBiz", TypeBiz.class);
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -32,7 +31,7 @@ public class TypeServlet extends HttpServlet {
             doDelTypeByID(request, response);
         } else if ("doUpdateType".equals(method)) {
             doUpdateType(request, response);
-        } else if ("login".equals(method)){
+        } else if ("login".equals(method)) {
             doLogin(request, response);
             request.getRequestDispatcher("/page/portal/index.jsp").forward(request, response);
         } else if ("doShowDetailForModify".equals(method)) {
@@ -109,12 +108,13 @@ public class TypeServlet extends HttpServlet {
 
     /**
      * 跳转到后台主页前获取数据
+     *
      * @param request
      * @param response
      * @throws ServletException
      * @throws IOException
      */
-    public void doLogin (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //        TypeBiz typeBiz = new TypeBiz();
         List<Type> typeList = typeBiz.getAllType();
         request.setAttribute("list", typeList);
@@ -122,12 +122,13 @@ public class TypeServlet extends HttpServlet {
 
     /**
      * 获取公告类型的详细信息
+     *
      * @param request
      * @param response
      * @throws ServletException
      * @throws IOException
      */
-    public void doShowDetailForModify (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doShowDetailForModify(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("测试");
 //        String tno = request.getParameter("Tno");
 //        System.out.println(tno);
@@ -141,12 +142,13 @@ public class TypeServlet extends HttpServlet {
 
     /**
      * 添加公告类型
+     *
      * @param request
      * @param response
      * @throws ServletException
      * @throws IOException
      */
-    public void addType (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void addType(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("测试");
         String TtypeName = request.getParameter("TtypeName");
 //        TypeBiz typeBiz = new TypeBiz();
